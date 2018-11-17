@@ -1,0 +1,14 @@
+language: ruby
+cache:
+- bundler
+before_script:
+- bundle exec rake db:create
+- bundle exec rake db:migrate
+- bundle exec rake assets:precompile
+deploy:
+  provider: heroku
+  api_key:
+    secure: "G2SMthkoQ+AoF/Mj0VaM4dlNG/z03HcqDb3JG+QteBnQHHmi9jOJRLPUBSOoghICXbBReoHX+MNeLKJ8Tgon+RwfVzwpWkbZRbt8pc+hNYwt3oZzyuTgIGqW06bFMJ/dLHCwaAf9bqxmmsiERqOrRJAg/PvfYNR450rylbi+hPJ+EURK9plFW3a4deXHDBg83DU8okaihVMHo8iMUZmyQr2wFGjmE1oLXzbldJfzUfiRmrwk40o5jeSJvtEBFT5eK76caORHMlHc/knOI4ES0xqJ0J6hJVzDO9txwpKOZk4tf2i/IEEXluM1SJD2QgoufioINKkU5+6y1BYJmx362gVH+HgpkLvQJ/cBUTyKDPQqSINiF+/8hohoa1m137f+leobPBZkHmm3xsrFoHEvrqMCqjCqguFHKaZlcJhqoLFS/FeAIPv5g4tI+jx6Gw2Ozv1s4AjYOT8y70BPQzrosV7SPZYs3CeylZo31X9EUCqxxPVoGPDc9/u5sMsCCxk0cO81vl9w4UgtB5cJEuXCTzITBgCNKWMDTMYbysdKAgH9K06FrWV1gKVu1R9wXsJcD1/ESACSzK5wG/jkp01yinohFBw5bAS4FtHxN8JFkh6F4AGlUKT3rf+zlIh/iGZohATYYeVundroID6HJIZ8HOzHjnXzx3AGm2k0qHaOgDY="
+  app: taskmanagervoltmobi
+  on:
+    repo: lr00t/taskmanager
