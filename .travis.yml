@@ -1,6 +1,6 @@
 language: ruby
 script:
-  - bundle exec rake db:create db:migrate db:seed
+  - bin/rails db:create db:migrate db:seed
 deploy:
   provider: heroku
   api_key:
