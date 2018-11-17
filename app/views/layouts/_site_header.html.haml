@@ -1,0 +1,11 @@
+%nav.navbar.navbar-expand-md.bg-dark.navbar-dark#header
+  .container
+    = link_to 'Task manager', root_path, class: 'navbar-brand'
+
+    - if current_user
+      %ul.nav.navbar-nav.navbar-right
+        %li.nav-link#username
+          = current_user.email
+        %li
+          - if current_user
+            = link_to 'Logout', logout_path, class: 'nav-link'

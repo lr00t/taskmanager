@@ -1,0 +1,8 @@
+.jumbotron#signin
+  = simple_form_for User.new, url: sessions_path, html: {class: 'form-signin'} do |f|
+    - if @error.present?
+      .alert.alert-danger= @error
+    = f.input :email, placeholder: 'user@domain.com'
+    = f.input :password
+    = f.button :submit, 'Sign in', class: 'btn btn-lg btn-primary btn-block'
+    = link_to 'Sign up', sign_up_path, class: 'btn btn-lg btn-default btn-block'

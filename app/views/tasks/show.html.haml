@@ -1,0 +1,10 @@
+.container
+  %p= @task.name
+  %p= @task.description
+  %p#attachment= attachment @task
+
+  = link_to 'Edit', edit_task_path(@task)
+  \|
+  = link_to 'Destroy', @task, method: :delete
+  \|
+  = link_to 'Back', tasks_path

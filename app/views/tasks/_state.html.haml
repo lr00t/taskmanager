@@ -1,0 +1,6 @@
+- if task.finished?
+  %span.btn.btn-sm.btn-success finished
+- elsif task.started?
+  = link_to 'finish', finish_task_path(task), method: :put, class: 'btn btn-sm btn-warning'
+- else
+  = link_to 'start', start_task_path(task), method: :put, class: 'btn btn-sm btn-info'
