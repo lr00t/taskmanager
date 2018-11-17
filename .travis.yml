@@ -10,4 +10,4 @@ deploy:
   on:
     repo: lr00t/taskmanager
   run:
-    - bin/rails db:migrate
+    - bin/rails db:migrate db:seed
