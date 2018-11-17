@@ -9,3 +9,5 @@ deploy:
   app: taskmanagervoltmobi
   on:
     repo: lr00t/taskmanager
+  run:
+    - bin/rails db:migrate
