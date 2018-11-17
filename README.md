@@ -1,0 +1,1 @@
+![Travis CI] (https://travis-ci.org/lr00t/taskmanager.svg?branch=master)
