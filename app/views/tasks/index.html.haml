@@ -3,6 +3,7 @@
   = link_to 'New Task', new_task_path, class: 'btn btn-primary'
 
   %h3(style='text-align: center;') Task list
+
   %table.table.table-hover
     - if @tasks.blank?
       .alert Tasks not found
@@ -19,17 +20,4 @@
           %th Attachment
 
       %tbody
-        - @tasks.each do |task|
-          %tr
-            %td= task.id
-            %td= task.created_at.strftime("%F %H:%M")
-            %td= task.name
-            %td= task.description
-            %td= render 'tasks/state', task: task
-            - if current_user.admin?
-              %td= task.user.email
-
-            %td= attachment(task)
-
-            %td= link_to 'Show', task
-            %td= link_to 'Edit', edit_task_path(task)
+        = render collection: @tasks, partial: 'tasks/task'

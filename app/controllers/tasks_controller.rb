@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   before_action do
     @scope = current_user.admin? ? Task.ordered : current_user.tasks
   end
+  before_action :load_resource!, except: [:index, :new, :create]
 
   def index
     @tasks = @scope
@@ -22,16 +23,11 @@ class TasksController < ApplicationController
     end
   end
 
-  def show
-    @task = @scope.find(params[:id])
-  end
+  def show; end
 
-  def edit
-    @task = @scope.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @task = @scope.find(params[:id])
     if @task.update_attributes(allowed_params)
       redirect_to @task
     else
@@ -40,22 +36,23 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = @scope.find(params[:id])
     @task.destroy
     redirect_to url_for(action: :index)
   end
 
   def start
-    @task = @scope.find(params[:id])
     redirect_to root_path if @task.start!
   end
 
   def finish
-    @task = @scope.find(params[:id])
     redirect_to root_path if @task.finish!
   end
 
   private
+
+  def load_resource!
+    @task = @scope.find(params[:id])
+  end
 
   def allowed_params
     params.require(:task).permit(:name, :description, :file, :file_cahce, :user_id)

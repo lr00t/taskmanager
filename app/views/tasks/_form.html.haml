@@ -3,12 +3,8 @@
   = f.error_notification
   = f.input :name, as: :text
   = f.input :description, as: :text
-
   = attachment @task
-
   = f.input :file, as: :file
-
-
 
   - if current_user.admin?
     = f.input :user_id, collection: User.user.map{|u| [u.email, u.id]}

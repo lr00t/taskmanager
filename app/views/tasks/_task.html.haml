@@ -1,0 +1,13 @@
+%tr
+  %td= task.id
+  %td= task.created_at.strftime("%F %H:%M")
+  %td= task.name
+  %td= task.description
+  %td= render 'tasks/state', task: task
+  - if current_user.admin?
+    %td= task.user.email
+
+  %td= attachment(task)
+
+  %td= link_to 'Show', task
+  %td= link_to 'Edit', edit_task_path(task)
