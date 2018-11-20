@@ -6,7 +6,9 @@ FactoryBot.define do
     role { 0 }
   end
 
-  trait :admin do
-    role { 1 }
+  factory :invalid_user, class: 'User' do
+    email { 'test' }
+    password { 'pass' }
+    password_confirmation { 'pass' }
   end
 end

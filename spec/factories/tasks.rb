@@ -4,7 +4,7 @@ FactoryBot.define do
 
     name { Faker::Lorem.sentence }
     description { Faker::Lorem.paragraph }
-    file { Rack::Test::UploadedFile.new(attachment_path) }
+    file { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'support', 'files', 'apples.png')) }
     state { 'new' }
   end
 end

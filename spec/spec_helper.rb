@@ -1,13 +1,12 @@
 require 'simplecov'
-require 'capybara/rspec'
 require 'factory_bot_rails'
-require 'support/request_spec_helper'
+require 'support/controller_macros'
 
 SimpleCov.start 'rails'
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
-  config.include Capybara::DSL
+  config.include ControllerMacros, type: :controller
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
